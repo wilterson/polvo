@@ -1,8 +1,31 @@
-# polvo
-Teste Programador PHP
+# Polvo
 
-Desenvolvimento de um CRUD de cadastro de produtos em PHP e MySQL, sem restrições quanto ao uso de Frameworks, desde que utilizando padrões de projeto MVC. 
+Desafio Programador PHP - Grupo Polvo
 
-O produto deverá ter um ID, SKU, Nome, Descrição, Imagem (mais de uma) e Preço.
+Desenvolvimento de um CRUD de cadastro de produtos em PHP e MySQL.
 
-Enviar o link do repositório para o e-mail: andrea@polvo.com.br
+## Deverá conter
+Produto: ID, SKU, Nome, Descrição e Preço.
+Pedido: ID, Total, Data, Produtos.
+
+## Instruções
+
+1. Faça um fork do projeto para sua conta pessoal;
+2. Crie uma branch com o padrão: `php-dev-challenge`;
+3. Coloque seu teste dentro do diretório **[/dev-php-challenge](https://github.com/aline-matos/polvo/tree/php-dev-challenge)**
+5. Submeta seu código criando um [Pull Request](https://github.com/aline-matos/polvo/compare/master...php-dev-challenge) para `php-dev-challenge`.
+
+## Você pode
+
+- Utilizar qualquer Framework. Caso opte por não utilizar, desenvolver nos padrões de projeto MVC;
+- Utilizar composer;
+- Utilizar qualquer template engine de sua preferência;
+- Utilizar quaisquer bibliotecas ou frameworks JS como Angular, React, jQuery, VueJS ou outras;
+- Utilizar bibliotecas CSS como Compass, Bourbon, Animatecss ou outras;
+- Utilizar quaisquer frameworks CSS como Bootstrap, Foundation ou outras.
+
+## Dúvidas?
+
+Abra uma [issue](https://github.com/aline-matos/polvo/issues/new)
+
+Boa sorte! :)
