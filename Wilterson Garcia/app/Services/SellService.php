@@ -67,4 +67,14 @@ class SellService
 
         print true;
     }
+
+    public function delete($id)
+    {
+        $this->repository->delete($id);
+
+        return response()->json([
+            'success' => true,
+            'message'    => 'A venda foi deletada com sucesso',
+        ], 200);
+    }
 }

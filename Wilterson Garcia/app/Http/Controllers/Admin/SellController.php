@@ -79,4 +79,10 @@ class SellController extends Controller
 
         return view('admin.sells.details', compact('sell', 'prods'));
     }
+
+    public function destroy($id)
+    {
+        $this->service->delete($id);
+        print true;
+    }
 }

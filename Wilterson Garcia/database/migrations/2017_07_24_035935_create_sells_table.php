@@ -21,6 +21,7 @@ class CreateSellsTable extends Migration
             $table->date('date')->default(date('Y-m-d'));
             $table->double('total', 8,2);
 
+            $table->softDeletes();
             $table->timestamps();
 		});
 	}

@@ -54,11 +54,13 @@
                                 <td>R$ {{ $sell['total'] }}</td>
                                 <td>
                                     <a href="{{ route('sells.show', ['id'=> $sell['id'] ]) }}" class="btn btn-xs btn-flat btn-primary"><i class="fa fa-eye"></i></a>
+                                    <a href="#" id="{{ $sell['id'] }}" class="btn btn-xs btn-flat btn-danger btn-delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <input type="hidden" id="csrf_token" value="{{ csrf_token() }}" />
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -68,4 +70,33 @@
 
 @section('scripts')
     <script type="application/javascript" src="{{ asset('js/admin/sells.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-delete').on('click', function (e) {
+                e.preventDefault();
+
+                var sell_id = $(this).attr('id');
+
+                swal({
+                    title: 'Tem Certeza?',
+                    text: "Tem Certeza que deseja deletar essa venda?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Deletar',
+                    cancelButtonText: 'Cancelar'
+                }).then(function () {
+                    $.ajax({
+                        method: "DELETE",
+                        url: "sells/"+ sell_id,
+                        data:{
+                            _token : $('#csrf_token').val(),
+                        }
+                    }).success(function (data) {
+                        location.reload();
+                    });
+                });
+            });
+        });
+    </script>
 @endsection
