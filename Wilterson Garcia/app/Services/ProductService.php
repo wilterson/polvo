@@ -92,5 +92,14 @@ class ProductService
         ], 200);
     }
 
+    public function update($request, $id)
+    {
+        $this->repository->update($request, $id);
+
+        return response()->json([
+            'success' => true,
+            'message'    => 'O Produto foi alterado com sucesso',
+        ], 200);
+    }
 
 }

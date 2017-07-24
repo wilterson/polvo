@@ -71,7 +71,7 @@
                                 <td>R$ {{ $product['price'] }}</td>
                                 <td>
                                     <a href="" class="btn btn-xs btn-flat btn-danger btn-delete" id="{{ $product['id'] }}"><i class="fa fa-trash"></i></a>
-                                    <a href="" class="btn btn-xs btn-flat btn-info"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ route('products.edit', $product['id']) }}" class="btn btn-xs btn-flat btn-info"><i class="fa fa-pencil"></i></a>
                                 </td>
                             </tr>
                         @endforeach

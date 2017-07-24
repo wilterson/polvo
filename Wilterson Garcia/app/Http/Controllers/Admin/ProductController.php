@@ -22,10 +22,12 @@ class ProductController extends Controller
     /**
      * ProductController constructor.
      * @param ProductService $service
+     * @param ProductRepositoryEloquent $repository
      */
-    public function __construct(ProductService $service)
+    public function __construct(ProductService $service, ProductRepositoryEloquent $repository)
     {
         $this->service = $service;
+        $this->repository = $repository;
     }
 
     /**
@@ -92,7 +94,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prod = $this->repository->skipPresenter(false)->findWhere(['id' => $id])['data'][0];
+        return view('admin.products.edit', compact('prod'));
     }
 
     /**
@@ -104,7 +107,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $return = $this->service->update($request->all(), $id);
+        return redirect()->route('products.index')->with(["return" => $return->getData()]);
     }
 
     /**
