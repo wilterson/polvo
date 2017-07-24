@@ -31,6 +31,7 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('css/admin/plugins/select2/select2.min.css') }}" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css" rel="stylesheet" type="text/css" media="all"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -95,6 +96,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('js/admin/adminlte.min.js') }}"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.js"></script>
 @yield('scripts')
 </body>
 </html>

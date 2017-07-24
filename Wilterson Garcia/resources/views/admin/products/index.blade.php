@@ -70,13 +70,14 @@
                                 <td>{{ $product['description'] }}</td>
                                 <td>R$ {{ $product['price'] }}</td>
                                 <td>
-                                    <a href="" class="btn btn-xs btn-flat btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="" class="btn btn-xs btn-flat btn-danger btn-delete" id="{{ $product['id'] }}"><i class="fa fa-trash"></i></a>
                                     <a href="" class="btn btn-xs btn-flat btn-info"><i class="fa fa-pencil"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
+                    <input type="hidden" id="csrf_token" value="{{ csrf_token() }}" />
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -86,4 +87,33 @@
 
 @section('scripts')
     <script type="application/javascript" src="{{ asset('js/admin/products.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.btn-delete').on('click', function (e) {
+                e.preventDefault();
+
+                var prod_id = $(this).attr('id');
+
+                swal({
+                    title: 'Tem Certeza?',
+                    text: "Tem Certeza que deseja deletar esse produto?",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Deletar',
+                    cancelButtonText: 'Cancelar'
+                }).then(function () {
+                    $.ajax({
+                        method: "DELETE",
+                        url: "products/"+ prod_id,
+                        data:{
+                            _token : $('#csrf_token').val(),
+                        }
+                    }).success(function (data) {
+                        location.reload();
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

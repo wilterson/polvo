@@ -81,5 +81,16 @@ class ProductService
         return URL::to($dir);
     }
 
+    public function delete($id)
+    {
+
+        $this->repository->delete($id);
+
+        return response()->json([
+            'success' => true,
+            'message'    => 'O produto foi deletado com sucesso',
+        ], 200);
+    }
+
 
 }

@@ -115,6 +115,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->service->delete($id);
+        print true;
     }
 }
