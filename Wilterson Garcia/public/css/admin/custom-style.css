@@ -1,0 +1,25 @@
+table.dataTable thead .sorting_asc:after {
+    content: "";
+}
+
+.select2-container--default .select2-selection--single {
+    border-radius: 0 !important;
+    height: 34px !important;
+}
+
+input.select2{
+    width: 100% !important;
+}
+
+/* Projetos */
+#galery-cover-container{
+    text-align: center;
+}
+
+#galery-cover-container #cover{
+    width: 350px;
+    max-height: 350px;
+    display: block;
+    margin: 0 auto 30px;
+}
+/* /Projetos */
